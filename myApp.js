@@ -43,6 +43,20 @@ app.get('/:word/echo', (req, res) => {
 })
 
 
+const getName= (req, res) => {
+  const {first, last}= req.query
+
+  res.json({name: `${first} ${last}`})
+}
+
+const postName= (req, res) => {
+  const {first, last}= req.body
+
+   res.json({name: `${first} ${last}`})
+}
+
+app.route('/name').get(getName).post(postName)
+
 
 
 
