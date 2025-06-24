@@ -1,6 +1,9 @@
 let express = require('express');
 let app = express();
 require('dotenv').config()
+const bodyParser= require('body-parser')
+
+app.use(bodyParser.urlencoded({extended:false}))
 
 console.log('Hello World')
 
@@ -55,7 +58,10 @@ const postName= (req, res) => {
    res.json({name: `${first} ${last}`})
 }
 
+
 app.route('/name').get(getName).post(postName)
+
+
 
 
 
